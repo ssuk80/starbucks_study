@@ -1,4 +1,239 @@
+/* COMMON */
 body {
 font-family: 'Nanum Gothic', sans-serif;
-font-size: 50px;
+font-size: 16px;
+font-weight: 400;
+line-height: 1.4;
+color:#333;
+/* 위 속성들은 모두 상속되기에 전체 스타일을 한번에 
+제어 */
+
+height: 3000px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  /* 이미지가 인라인 요소라서 발생하는 문자 기준선(baseline)아래의 공간을 제거하기 위해 */
+  display: block;
+}
+
+.inner {
+  /* 가로 너비를 가진 블록 요소에 margin:0 auto; 를 줄 경우 부모 범위 안에서 가운데 정렬 */
+  width: 1100px;
+  /* 반응형 작업하고 싶다면? */
+  /* max-width: 1100px; */
+  margin: 0 auto;
+  position: relative;
+}
+
+/* HEADER */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  /* 고정된 헤더 만들기 */
+  width: 100%;
+  position: fixed;
+   /*가로 너비를 지정하지 않으면 최소한으로 줄어드려고 함*/
+  top:0;
+  z-index: 9;
+}
+
+header > .inner { /*바로밑에 있는 이너만 선택해주기위해 > */
+  height: 120px;
+}
+
+header .logo {
+  /* 로고의 수직 가운데 배치 */
+  height: 75px; /*로고의 세로크기*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0 ;
+}
+
+header .sub-menu {
+  /* 메뉴와 검색영역을 수평정렬 */
+  display: flex;
+  position: absolute;
+  top:10px;
+  right:0;
+}
+
+header .sub-menu ul.menu {
+  /* 메뉴아이템(li)을 수평정렬 */
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+  /* 메뉴 아이템 사이에 구분선 만들기 */
+  content: "";/*필수 속성*/
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  margin: auto; /*수직가운데배치*/
+}
+
+header .sub-menu ul.menu li:first-child::before {
+  /* 첫번째 메뉴 요소의 구분선 숨기기 */
+  display: none;
+}
+
+header .sub-menu ul.menu li a {
+  display: block; /*위 아래 여백 적용을 위해 변경*/
+  padding: 11px 16px; /*클릭할 수있는 영역을 넓혀주는 효과*/
+  font-size: 13px;
+  color:#656565;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color:#000;
+}
+
+header .sub-menu .search {
+  position: relative;
+  height: 34px;
+}
+
+header .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* 박스 사이즈의 기준을 보더까지 잡음 */
+  outline: none; /* 보더 바깥쪽 테두리인데 잘 안씀 */
+  background-color: #fff;
+  color:#777;
+  font-size: 12px;
+  transition:width .4s;
+}
+
+header .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
+} 
+
+header .sub-menu .search .material-icons {
+  height: 24px;
+  position: absolute;
+  top:0;
+  bottom:0;
+  right: 5px;
+  margin: auto;
+  transition: .4s;
+}
+
+/* 검색창 포커스 시 검색 아이콘 투명화 */
+header .sub-menu .search.focused .material-icons {
+  opacity: 0;
+}
+
+
+/* 메인메뉴 */
+header .main-menu {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1; /*드롭다운 될 요소가 더 위에 보이도록 하려고*/
+}
+
+header .main-menu .item .item__name {
+  display: block; /*위아래 패딩적용 위해서*/
+  padding: 10px 20px 34px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #333;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color:#669900;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+  /* 뷰포트 기준으로 배치 
+  absolute;를 사용하면 부모요소 기준으로 하므로 화면 좌 우 끝까지 늘어날 수 없음 */
+  width: 100%;
+  position: fixed;
+  left:0;
+  display: none;
+
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+header .main-menu .item:hover .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+
+header .main-menu .item:hover .item__contents .contents__menu > ul {
+  display: flex;
+  padding: 20px 0;
+}
+header .main-menu .item:hover .item__contents .contents__menu > ul > li {
+  /* 하위 메뉴 가로너비 통일 */
+  width: 220px;
+}
+header .main-menu .item:hover .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0;
+  font-size: 14px;
+  color:#fff;
+}
+
+header .main-menu .item:hover .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0 ;
+  font-size: 12px;
+  color:#999;
+  cursor: pointer;
+}
+
+header .main-menu .item:hover .item__contents .contents__menu > ul > li ul li:hover {
+  color: #669900;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px;
+  font-size: 12px;
+  background-image: url("../images/main_menu_pattern.jpg") ;
+  /* 패턴 이미지가 반복적으로 출력됨 */
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+  color:#999;
+  font-weight: 700;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+  margin: 4px 0 14px;
+  color: #669900;
+}
+
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  /* x축 거리 y축 거리 흐림처리 (blur)범위, 확대/축소(spread) 범위, 색상*/
+  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .15);
+  cursor: pointer;
 }
