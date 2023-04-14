@@ -430,5 +430,26 @@ header .badges .badge {
   /* 방법1 %를 이용하요 비율나누기 */
   width:30%;
   /* flex: 3; */
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
 }
 
+.notice .inner__right h2 {
+  font-size: 17px;
+  font-weight: 700;
+
+}
+
+.notice .inner__right .toggle-promotion {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.notice .inner__right .toggle-promotion .material-icons {
+  font-size: 30px;
+}
