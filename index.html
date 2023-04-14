@@ -45,17 +45,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">  
 
+  <!-- SWIPER(8버전으로 진행) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
   <link rel="stylesheet" href="./css/main.css">
 
   <!-- 구글 머티리얼 아이콘: 구글에서 제공하는 머티리얼 스타일의 아이콘 , 글자처럼 취급 가능한 장점 -->
   <!-- 그 외 fontawesome, bootstrap icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-
+  <!-- GSAP  -->
+  <!-- 순서 주의 (main.js에서 사용하니까 더 앞에) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" 
+  integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <!-- SWIPER(8버전으로 진행) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  
   <script defer src="./js/main.js"></script>
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- header -->
   <header>
     <!-- .inner: 내용을 가운데 정렬하는 용도 -->
     <div class="inner">
@@ -383,5 +393,60 @@
     </div>
     <!-- BADGES end -->
   </header>
+  <!-- visual -->
+  <section class="visual">
+    <div class="inner">
+      <div class="title fade-in">
+        <img src="./images/visual_title.png" alt="Deligntful">
+        <a href="javascript:void(0)" class="btn btn--brown">자세히보기</a>
+      </div>
+      <div class="fade-in">
+        <img src="./images/visual_cup1.png" alt="cup1" class ="cup1 image">
+        <img src="./images/visual_cup1_text.png" alt="cup1" class="cup1 text">
+      </div>
+      <div class="fade-in">
+        <img src="./images/visual_cup2.png" alt="cup2" class ="cup2 image">
+        <img src="./images/visual_cup2_text.png" alt="cup2" class="cup2 text">
+      </div>
+      <div class="fade-in">
+        <img src="./images/visual_spoon.png" alt="spoon" class="spoon">
+      </div>
+    </div>
+  </section>
+  <!-- visual end-->
+  <!-- notice -->
+  <section class="notice">
+    <div class="bg-left">ss</div>
+    <div class="bg-right">dd</div>
+    <div class="inner">
+      <div class="inner__left">
+        <h2>공지사항</h2>
+        <!-- swiper: 공지사항이 슬라이드 될 영역 , 슬라이드 라이브러리 사용 -->
+        <div class="swiper">
+          <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">크리스마스 & 연말연시 스타벅스 매장 영업시간 변경 안내</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">[당첨자발표] 스타벅스 플래너 영수증 이벤트</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">스타벅스 애플리케이션 버전 업데이트 안내</a>
+              </div>
+              <div class="swiper-slide">
+                <a href="javascript:void(0)">[당첨자발표]뉴이어 전자 영수증 이벤트</a>
+              </div>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="notice-more">
+          <span class="material-icons">add_circle</span>
+        </a>
+      </div>
+      <div class="inner__right">
+      </div>
+    </div>
+  </section>
+  <!-- notice end -->
 </body>
 </html>

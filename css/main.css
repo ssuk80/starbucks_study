@@ -7,8 +7,7 @@ line-height: 1.4;
 color:#333;
 /* 위 속성들은 모두 상속되기에 전체 스타일을 한번에 
 제어 */
-
-height: 3000px;
+/* height: 3000px; */
 }
 
 a {
@@ -28,6 +27,62 @@ img {
   margin: 0 auto;
   position: relative;
 }
+/* 전체 버튼 스타일 */
+/* 버튼과 같이 여러곳에서 반복 사용되는 요소를 공통스타일로 작업하면, 매번 다시 작성할 필요가 없음 */
+.btn { 
+  display: block; /*a, span같은 인라인 요소를 버튼으로 사용 할 수 있으니 미리 블럭으로 지정 */
+  width: 130px;
+  padding: 10px;
+  border:2px solid #333;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: .4s;
+}
+/* (참고) 커서 모양 커스텀 가능 */
+/* cursor: url("https://blog.kakaocdn.net/dn/BQXpN/btq3qNR67Lg/8tx8tGzkOcr5BuX5dyIaKk/img.png") 58 58, auto; */
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--brown {
+  color: #592b18;
+  border-color: #592b18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  background-color: #592b18;
+}
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--gold {
+  color: #d9aa8a;
+  border-color: #d9aa8a;
+}
+.btn.btn--gold:hover {
+  color: #fff;
+  background-color: #d9aa8a;
+}
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
+}
+
+
 
 /* HEADER */
 header {
@@ -231,9 +286,149 @@ header .badges {
 
 header .badges .badge {
   border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; 
   margin-bottom: 12px;
   /* x축 거리 y축 거리 흐림처리 (blur)범위, 확대/축소(spread) 범위, 색상*/
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .15);
   cursor: pointer;
 }
+
+
+/* visual */
+.visual {
+  /* 헤더가 fixed 되어 일반 배치 흐름에서 벗어남(주변 요소들과 상호작용하지 않음) */
+  /* 헤더의 높이만큼 외부 여백 추가 */
+  margin-top: 120px;
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;
+}
+.visual .inner {
+  height: 646px;
+}
+.visual .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+.visual .title .btn {
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+.visual .cup1.image {
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+.visual .cup1.text {
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+.visual .cup2.image {
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+.visual .cup2.text {
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+/* 순차적으로 요소 보이기 - 투명한 상태에서 시작 */
+
+.visual .fade-in {
+  opacity: 0;
+  
+}
+
+/* notice */
+.notice {
+  position: relative;
+  background-color: #669900;
+}
+
+.notice .bg-left {
+  width: 50%;
+  height:100%;
+  background-color: #333;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.notice .bg-right {
+  width: 50%;
+  height:100%;
+  background-color: #f6f5ef;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.notice .inner {
+  height: 62px;
+  /* border: 2px solid red; */
+  display: flex;
+}
+
+.notice .inner__left {
+  /* 방법1 %를 이용하요 비율나누기 */
+  width:70%;
+  background-color: #333;
+  /* 방법2 flex를 사용하여 비율 나누기 */
+  /* flex: 7; */
+  background-color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.notice .inner__left h2 {
+  color:#fff;
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.notice .inner__left .swiper {
+  height: 62px; /*슬라이드 되는 애 높이를 줘야됨*/
+  flex-grow: 1; /*flex:1 써도 같은 결과*/
+} 
+
+.notice .inner__left .swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  height: 62px;
+
+}
+
+.notice .inner__left .swiper .swiper-slide a {
+  color: #fff;
+}
+
+.notice .inner__left .notice-more {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+
+.notice .inner__left .notice-more .material-icons {
+  /* 머트리얼 아이콘은 글자 관련 속성이 적용됨 */
+  color:#fff;
+  font-size: 30px;
+}
+
+.notice .inner__right {
+  /* 방법1 %를 이용하요 비율나누기 */
+  width:30%;
+  /* flex: 3; */
+}
+
