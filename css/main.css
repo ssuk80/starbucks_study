@@ -355,7 +355,7 @@ header .badges .badge {
 
 .notice .bg-left {
   width: 50%;
-  height:100%;
+  height: 100%;
   background-color: #333;
   position: absolute;
   top: 0;
@@ -364,7 +364,7 @@ header .badges .badge {
 
 .notice .bg-right {
   width: 50%;
-  height:100%;
+  height: 100%;
   background-color: #f6f5ef;
   position: absolute;
   top: 0;
@@ -379,7 +379,7 @@ header .badges .badge {
 
 .notice .inner__left {
   /* 방법1 %를 이용하요 비율나누기 */
-  width:70%;
+  width: 70%;
   background-color: #333;
   /* 방법2 flex를 사용하여 비율 나누기 */
   /* flex: 7; */
@@ -389,7 +389,7 @@ header .badges .badge {
 }
 
 .notice .inner__left h2 {
-  color:#fff;
+  color: #fff;
   font-size: 17px;
   font-weight: 700;
   margin-right: 20px;
@@ -422,7 +422,7 @@ header .badges .badge {
 
 .notice .inner__left .notice-more .material-icons {
   /* 머트리얼 아이콘은 글자 관련 속성이 적용됨 */
-  color:#fff;
+  color: #fff;
   font-size: 30px;
 }
 
@@ -431,7 +431,7 @@ header .badges .badge {
   width:30%;
   /* flex: 3; */
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -453,3 +453,205 @@ header .badges .badge {
 .notice .inner__right .toggle-promotion .material-icons {
   font-size: 30px;
 }
+
+
+
+/* promotion */
+.promotion {
+  height: 663px;
+  background-color: #f6f5ef;
+  display: flex;
+  justify-content: center;/*슬라이드 수평 가운데 정렬 */
+  position: relative; /*swiper-pagination위치때문에*/
+  overflow: hidden;
+  transition: height .4s;
+}
+
+.promotion.hide {
+height: 0;
+/* display 속성을 사용하면 애니메이션 효과 못넣음 
+  (none -> block될 때 중간 과정이 없기때문에)
+*/
+}
+
+.promotion .swiper {
+  /* 이미지 크기(819px)*3 & 사이 여백(10px) 2개 = 2477px */
+  /* width: 2477px; */
+  width: calc(819px * 3 + 10px * 2);
+  /* 사용예시:calc(100%-50px); */
+  height: 553px;
+  flex-shrink: 0; /*1이 기본값 Flex Container 너비에 따라 감소 비율 적용 */
+} 
+
+.promotion .swiper-slide {
+  /* 모든 슬라이드는 반투명하게, active한것만 불투명하게 */
+  opacity: 0.5;
+  transition: opacity 1s;
+  position: relative;
+}
+
+.promotion .swiper-slide-active {
+  opacity: 1;
+}
+
+.promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  /* absolute를 이용한 수평 가운데 배치 */
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.promotion .swiper-pagination {
+  position: absolute;
+  bottom: 40px;
+  z-index: 1; /* (라이브러리에서 10이적용됨) 헤더 z-index:9이기 때문에 1로 덮어씌움 */
+}
+
+
+.promotion .swiper-pagination .swiper-pagination-bullet {
+  /*   기본 배경색을 투명하게 숨기고, 배경이미지를 사용 */
+  background-color: transparent;
+  background-image: url("../images/promotion_slide_pager.png");
+  width:13px;
+  height:12px;
+}
+
+.promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");}
+
+/* 쉼표로 구분해서 다중 선택으로 공통 스타일 지정 */
+.promotion .swiper-button-prev,
+.promotion .swiper-button-next {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  position: absolute;
+  top:300px;
+  z-index: 1;
+  color:#333;
+  transition: 0.4s;
+}
+
+.promotion .swiper-button-prev {
+ /* 가운데 몰아넣고 마진으로 위치조정 */
+ left: 50%;
+ margin-left: -480px;
+
+}
+
+.promotion .swiper-button-next {
+   /* 가운데 몰아넣고 마진으로 위치조정 */
+right: 50%;
+margin-right: -480px;
+}
+
+.promotion .swiper-button-prev:hover,
+.promotion .swiper-button-next:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.promotion .swiper-button-prev::after,
+.promotion .swiper-button-next::after {
+  display: none; 
+}
+
+/* rewards */
+.rewards {
+  position: relative;
+}
+
+.rewards .bg-left {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  top: 0;
+  left: 0;
+}
+.rewards .bg-right {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  top: 0;
+  right: 0;
+}
+
+.rewards .inner {
+  height: 241px;
+  background-image: url("../images/rewards.jpg");
+}
+
+.rewards .btn-group {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+
+  position: absolute;
+  right: 0;
+  bottom:24px;
+}
+
+.rewards .btn-group .btn.sign-up {
+  margin-right: 10px;
+}
+
+.rewards .btn-group .btn.sign-in {
+  width:110px;
+}
+
+.rewards .btn-group .btn.gift  {
+  margin-top:10px;
+  flex-grow:1; /*flex컨테이너 내부에서 최대한 너비를 쓸수 있도록 
+  flex:1을 써도 같은 결과*/
+}
+
+/* youtube */
+.youtube {
+  position: relative;
+  height: 700px;
+  background-color: #333;
+  
+  /* 방법 3 정가운데 배치  */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  /* 영상출력배치방법 */
+  overflow: hidden;
+}
+
+.youtube .youtube__area {
+  /* 유튜브 표준영상비율 16:9  */
+  width: 1920px;
+  height: 1000px;
+  /* background-color: orange; */
+  /* 정가운데 배치하는 기술3가지 */
+
+  position: absolute;
+  /* 방법 1 */
+  /* 부모의 50% 위치에 배치 */
+  left: 50%;
+  top: 50%;  
+  /* margin을 이용하여 가운데로 옮기기 */
+  /* 가로너비의 절반만큼 */
+  margin-left: calc(1920px / -2); 
+  /* 세로높의 절반만큼 */
+  margin-top: calc(1000px / -2); 
+
+  /* 방법 2 (엡솔루트일때) */
+  /* top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto; */
+}
+
+#player {
+  width: 100%;
+  height: 100%;
+  }

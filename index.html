@@ -61,7 +61,9 @@
   
   <!-- SWIPER(8버전으로 진행) -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  
+  <!-- YOUBUBE -->
+  <script src="./js/youtube.js"></script>
+
   <script defer src="./js/main.js"></script>
 </head>
 <body>
@@ -416,8 +418,8 @@
   <!-- visual end-->
   <!-- notice -->
   <section class="notice">
-    <div class="bg-left">ss</div>
-    <div class="bg-right">dd</div>
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
     <div class="inner">
       <div class="inner__left">
         <h2>공지사항</h2>
@@ -452,5 +454,65 @@
     </div>
   </section>
   <!-- notice end -->
+  <!-- promotion -->
+  <section class="promotion">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide1.jpg" alt="프로모션1">
+            <a href="javascript:void(0)" class="btn">자세히보기</a>
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide2.jpg" alt="프로모션2">
+            <a href="javascript:void(0)" class="btn">자세히보기</a>
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide3.jpg" alt="프로모션3">
+            <a href="javascript:void(0)" class="btn">자세히보기</a>
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide4.jpg" alt="프로모션4">
+            <a href="javascript:void(0)" class="btn">자세히보기</a>
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/promotion_slide5.jpg" alt="프로모션5">
+            <a href="javascript:void(0)" class="btn">자세히보기</a>
+          </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev">
+      <span class="material-icons">arrow_back</span>
+    </div>
+    <div class="swiper-button-next">
+      <span class="material-icons">arrow_forward</span>
+    </div>
+  </section>
+  <!-- promotion end -->
+  <!-- rewards -->
+  <section class="rewards">
+    <div class="bg-left"></div>
+    <div class="bg-right"></div>
+    <div class="inner">
+      <div class="btn-group">
+        <div class="btn btn--reverse sign-up">회원가입</div>
+        <div class="btn sign-in">로그인</div>
+        <div class="btn gift">e-gift 선물하기</div>
+      </div>
+    </div>
+  </section>
+  <!-- rewards end -->
+  <!-- youtube -->
+  <section class="youtube">
+  <!-- 영상이 출력될 영역 -->
+    <div class="youtube__area">
+      <!-- 실제 영상이 재생될 요소 (id값을 player로 써야 iframe태그로 교체됨) -->
+      <div id="player"></div>
+    </div>
+    <!-- 섹션 전체를 덮을 커버 요소 -->
+    <div class="youtube__cover"></div>
+  </section>
+  <!-- youtube end -->
 </body>
 </html>
