@@ -124,8 +124,43 @@ promotionToggleBtn.addEventListener ('click', function (){
   }
 });
 
+// 유튜브 섹션 위에  떠있는 부유 요소 애니메이션 처리
+// gsap.to(요소, 지속시간, 옵션: {})
+// 옵션 참고: https://greensock.com/docs/v3/GSAP/gsap.to()
+ gsap.to('.floating1', 1, {
+  delay: 1,//얼마나 늦게 애니메이션을 시작할 것인지 지연 시간 설정
+  y: 15, //transform:translateY (): 와 같음, 수직으로 얼마나 움직일 지 설정
+  repeat: -1, //몇 번 반복하는지 설정, -1은 무한 반복을 의미함
+  yoyo: true, // 한번 재생된 애니메이션을 다시 뒤로 재생
+  ease: Power1.easeInOut //Easing함수 적용, 느리게 - 빠르게 -느리게
+ });
 
+ gsap.to('.floating2', 1.5, {
+  delay: 1,
+  y: 15, 
+  repeat: -1, 
+  yoyo: true, 
+  ease: Power1.easeInOut 
+ });
 
+ gsap.to('.floating3', 1.8, {
+  delay: 1,
+  y: 15, 
+  repeat: -1,
+  yoyo: true, 
+  ease: Power1.easeInOut 
+ });
 
+ //어워즈 섹션 슬라이드 기능 
+ new Swiper ('.awards .swiper', {
+  direction:'horizontal',//수평 슬라이드(기본값)
+  loop: true,//반복 재생 여부
+  autoplay: true,
+  slidesPerView: 5,//한번에 보여줄 슬라이드 개수(기본값:1)
+  spaceBetween: 30,//슬라이드 사이 여백 (간격)px
+  navigation: { //슬라이드 이전/다음 버튼
+    nextEl:'.awards .swiper-button-next',
+    prevEl:'.awards .swiper-button-prev',
+  },
 
-
+});
