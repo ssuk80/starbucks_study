@@ -180,3 +180,8 @@ spyEls.forEach(function (spyEl) {
     // (필수) - 라이브러리에서 지정한 문법으로 깊게 이해
   
 });
+
+//현재 연도 표시
+//날짜 정보를 가진 js의 Data객체를 이용
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear();//현재연도의 정보가 숫자 데이터로 반환됨
