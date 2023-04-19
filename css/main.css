@@ -1,3 +1,9 @@
+/*  스크롤 이동을 부드럽게 */
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* COMMON */
 body {
 font-family: 'Nanum Gothic', sans-serif;
@@ -1028,3 +1034,23 @@ footer .logo {
   인 경우 width속성이 없어도 가운데 정렬이 가능함 */
   margin: 30px auto 0 ;
 }
+
+/* scroll to top */
+
+#to-top {
+  width: 42px;
+  height: 42px;
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom:30px;
+  right:30px;
+  z-index: 9;
+} 
+

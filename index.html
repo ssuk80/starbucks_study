@@ -53,10 +53,14 @@
   <!-- 구글 머티리얼 아이콘: 구글에서 제공하는 머티리얼 스타일의 아이콘 , 글자처럼 취급 가능한 장점 -->
   <!-- 그 외 fontawesome, bootstrap icon -->
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-  <!-- GSAP  -->
+  <!-- GSAP & ScrollToPlugin  -->
   <!-- 순서 주의 (main.js에서 사용하니까 더 앞에) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" 
     integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js" 
+    integrity="sha512-WFeBxQtM/n6U8/Nd0Hz/Hq7n75NImbzM7Kc0y/4kE0kHnH1Be+nzm32RwbGoDsW1D9fjjPvI8LIWxLrZhxew/w==" 
     crossorigin="anonymous" referrerpolicy="no-referrer">
   </script>
   
@@ -673,5 +677,12 @@
       <img src="./images/starbucks_logo_only_text.png" alt="starbucks" class="logo">
     </div>
   </footer>
+
+  <!-- scroll to top -->
+  <div id="to-top">
+    <!-- <a href="#"> -->
+      <span class="material-icons">arrow_upward</span>
+    <!-- </a> -->
+  </div>
 </body>
 </html>
