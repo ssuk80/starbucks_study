@@ -82,6 +82,39 @@ img {
   background-color: #fff;
 }
 
+/* back to positions */
+.back-to-position {
+  opacity: 0;
+  transition: 1s;
+}
+
+.back-to-position.to-left {
+/* 오른쪽에서 왼쪽으로 나타나는 효과 */
+  transform: translateX(150px);
+}
+
+.back-to-position.to-right {
+  /* 왼쪽에서 오른쪽으로 나타나는 효과 */
+    transform: translateX(-150px);
+  }
+  
+
+.show .back-to-position {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.show .back-to-position.delay-1 {
+  transition-delay: .3s;
+}
+
+.show .back-to-position.delay-2 {
+  transition-delay: .6s;
+}
+
+.show .back-to-position.delay-3 {
+  transition-delay: .9s;
+}
 
 
 /* HEADER */
@@ -461,61 +494,48 @@ header .badges .badge {
   height: 663px;
   background-color: #f6f5ef;
   display: flex;
-  justify-content: center;/*슬라이드 수평 가운데 정렬 */
-  position: relative; /*swiper-pagination위치때문에*/
+  justify-content: center; /* 슬라이드를 수평 가운데 정렬 */
+  position: relative; /* 페이지 번호 요소 배치를 위해 */
   overflow: hidden;
   transition: height .4s;
 }
-
 .promotion.hide {
-height: 0;
-/* display 속성을 사용하면 애니메이션 효과 못넣음 
-  (none -> block될 때 중간 과정이 없기때문에)
-*/
+  height: 0;
+  /* display 속성을 사용하면 애니메이션 효과 못넣음!!
+    (none -> block 될 때 중간 과정이 없기때문에)
+  */
 }
 
 .promotion .swiper {
-  /* 이미지 크기(819px)*3 & 사이 여백(10px) 2개 = 2477px */
-  /* width: 2477px; */
-  width: calc(819 * 3 + 10 * 2);
-  /* 사용예시:calc(100%-50px); */
+  /* 이미지 크기(819px) 3개 && 사이 여백(10px) 2개 = 2477px */
+  width: calc(819px * 3 + 10px * 2);
+  /* 사용 예시: calc(100% - 50px); */
   height: 553px;
-  flex-shrink: 0; /*1이 기본값 Flex Container 너비에 따라 감소 비율 적용 */
-} 
-
+  /* 2477px 유지를 위해 감소 너비 비율을 0으로 */
+  flex-shrink: 0;
+}
 .promotion .swiper-slide {
-  /* 모든 슬라이드는 반투명하게, active한것만 불투명하게 */
+  /* 모든 슬라이드는 반투명하게, active 한 것만 불투명하게 */
   opacity: 0.5;
   transition: opacity 1s;
   position: relative;
 }
-
 .promotion .swiper-slide-active {
   opacity: 1;
 }
-
 .promotion .swiper-slide .btn {
   position: absolute;
   bottom: 0;
   /* absolute를 이용한 수평 가운데 배치 */
   left: 0;
   right: 0;
-  margin: auto;
+  margin: 0 auto;
 }
-
 .promotion .swiper-pagination {
   position: absolute;
   bottom: 40px;
-  z-index: 1; /* (라이브러리에서 10이적용됨) 헤더 z-index:9이기 때문에 1로 덮어씌움 */
-}
-
-
-.promotion .swiper-pagination .swiper-pagination-bullet {
-  /*   기본 배경색을 투명하게 숨기고, 배경이미지를 사용 */
-  background-color: transparent;
-  background-image: url("../images/promotion_slide_pager.png");
-  width:13px;
-  height:12px;
+  z-index: 1;
+  /* (라이브러리에서 10이 적용됨) 헤더의 z-index가 9이기때문에 1로 덮어씌움 */
 }
 
 .promotion .swiper-pagination .swiper-pagination-bullet-active {
@@ -741,6 +761,8 @@ margin-right: -480px;
   right: 0;
 }
 
+
+
 /* pick-your-favorite */
 .pick-your-favorite {
   background-image: url("../images/favorite_bg.jpg");
@@ -751,8 +773,6 @@ margin-right: -480px;
   background-position: center;
   background-size: cover;
 }
-
-
 
 
 .pick-your-favorite .inner {
@@ -774,6 +794,7 @@ margin-right: -480px;
 .pick-your-favorite .text-group .description {
   margin-bottom: 40px;;
 }
+
 
 /* reserve store*/
 .reserve-store {
@@ -873,7 +894,6 @@ margin-right: -480px;
   left: 550px;
 }
 
-
 .find-store .text-group .title {
   margin-bottom: 20px;
 }
@@ -920,4 +940,91 @@ margin-right: -480px;
 .awards .swiper-button-prev::after,
 .awards .swiper-button-next::after {
   display: none; 
+}
+
+
+
+/* footer */
+footer {
+  background-color: #272727;
+  border-top:1px soild #333 ;
+}
+footer .inner {
+  padding: 40px 0 60px;
+}
+
+footer .menu {
+  display:flex ;
+  justify-content: center;
+}
+
+footer .menu li {
+  position:relative;
+}
+
+footer .menu li::before {
+  content: "";
+  display: block;
+  width:3px;
+  height: 3px;
+  background-color: #555;
+  top:0;
+  bottom:0;
+  margin: auto;
+}
+
+footer .menu li:first-child::before {
+  display: none;
+}
+
+footer .menu li a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding:15px; /*클릭할 수 있는 범위를 늘려주기*/
+  display: block; /*위아래 여백 적용을 위해 */
+}
+
+footer .menu li a.green {
+  color:#669900;
+}
+
+footer .btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+footer .btn-group .btn {
+  font-size: 12px;
+}
+
+footer .btn-group .btn + .btn {
+  margin-left: 10px;
+}
+
+footer .info {
+  margin-top: 30px;
+  text-align: center;
+}
+
+footer .info span {
+  color:#999;
+  font-size: 12px;
+}
+
+footer .info span + span {
+ margin-left: 20px;
+}
+
+footer .copyright {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+footer .logo {
+  /* img요소가 display:block ; + margin : 0 auto; 
+  인 경우 width속성이 없어도 가운데 정렬이 가능함 */
+  margin: 30px auto 0 ;
 }
